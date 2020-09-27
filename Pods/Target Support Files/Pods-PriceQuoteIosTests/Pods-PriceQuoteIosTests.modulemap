@@ -1,0 +1,6 @@
+framework module Pods_PriceQuoteIosTests {
+  umbrella header "Pods-PriceQuoteIosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
