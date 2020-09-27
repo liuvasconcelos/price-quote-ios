@@ -13,16 +13,15 @@ class SalesmanApiDataSourceTests: XCTestCase {
 
     func test_create_withCorrectFiels_requestSucceedes() {
         let sut = SalesmanApiDataSourceImplMock()
-        let salesman = Salesman(name: "Some name",
-                                status: SalesmanStatus.active,
-                                phone: Phone(number: "999999999",
-                                             isWhatsappActive: true))
+        let salesman = sut.salesman
         let e = expectation(description: "Alamofire")
+        sut.status = .success
         sut.create(salesman: salesman) { result in
-            switch result {
-            case .success(let saved):
-                XCTAssertTrue(saved)
-            default: XCTFail("Fail to save salesman")
+            result.onSuccess { response in
+                XCTAssertEqual(response.salesman?.name, salesman.name)
+            }
+            result.onFailed { error in
+                XCTFail("Fail to save salesman")
             }
             e.fulfill()
         }
@@ -31,8 +30,23 @@ class SalesmanApiDataSourceTests: XCTestCase {
 }
 
 class SalesmanApiDataSourceImplMock: SalesmanApiDataSource {
-    func create(salesman: Salesman, completion: @escaping (Result<Bool, Error>) -> Void) {
-        completion(.success(true))
+    let salesman = Salesman(name: "Some name",
+                            status: SalesmanStatus.active,
+                            phone: Phone(number: "999999999",
+                                         isWhatsappActive: true))
+    let json = """
+            {"data":{"id":24,"name":"Some name","status":"ativo","phones":[{"id":12,"number":"999999999","whatsapp":true}]},"status":201}
+            """
+    var status: APIResponseStatus = .none
+    
+    func create(salesman: Salesman, completion: @escaping (BaseCallback<SalesmanBaseResponse>) -> Void) {
+        switch status {
+        case .success:
+            completion(BaseCallback.success(SalesmanBaseResponse(JSONString: json)!))
+        default:
+            completion(BaseCallback.failed())
+        }
+        
     }
 }
 

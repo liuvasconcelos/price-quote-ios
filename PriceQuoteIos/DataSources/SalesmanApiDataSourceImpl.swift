@@ -8,43 +8,21 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 protocol SalesmanApiDataSource: class {
-    func create(salesman: Salesman, completion: @escaping (Result<Bool, Error>) -> Void)
+    func create(salesman: Salesman, completion: @escaping (BaseCallback<SalesmanBaseResponse>) -> Void)
 }
 
 class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
-    func create(salesman: Salesman, completion: @escaping (Result<Bool, Error>) -> Void) {
-        AF.request("http://localhost:3000/api/v1/salesman",
-                   method:.post,
-                   parameters: salesman.format(),
-                   encoding: JSONEncoding.default).responseJSON { (response) in
-                    switch response.result {
-                    case .success (let data):
-                        APIHandler.handleAPIResponse(data: data, completion: completion)
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
+    func create(salesman: Salesman, completion: @escaping (BaseCallback<SalesmanBaseResponse>) -> Void) {
+        let url = "http://localhost:3000/api/v1/salesman"
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: salesman.format())
+            .responseObject { (response: DataResponse<SalesmanBaseResponse>) in
+                APIHandler.handleAPIResponse(data: response, completion: completion)
         }
-        
     }
 }
 
-class APIHandler {
-    public static func handleAPIResponse(data: Any,
-                                         completion: @escaping (Result<Bool, Error>) -> Void) {
-        if let dictionary = data as? [String: Any],
-            let status = dictionary["status"] as? Int {
-            switch status {
-            case 201:
-                completion(.success(true))
-            case 404:
-                completion(.failure(Errors.notFound))
-            default:
-                completion(.failure(Errors.badRequest))
-            }
-        } else {
-            completion(.failure(Errors.badRequest))
-        }
-    }
-}

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,9 @@
 		53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */; };
 		53E404D92521191900077635 /* Salesman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D82521191900077635 /* Salesman.swift */; };
 		53E404DB25211CF200077635 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DA25211CF200077635 /* Errors.swift */; };
+		53E404DE2521339F00077635 /* BaseCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DD2521339F00077635 /* BaseCallback.swift */; };
+		53E404E025213EAE00077635 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DF25213EAE00077635 /* APIHandler.swift */; };
+		53E404E3252141EE00077635 /* APIResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404E2252141EE00077635 /* APIResponseStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceImpl.swift; sourceTree = "<group>"; };
 		53E404D82521191900077635 /* Salesman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salesman.swift; sourceTree = "<group>"; };
 		53E404DA25211CF200077635 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		53E404DD2521339F00077635 /* BaseCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCallback.swift; sourceTree = "<group>"; };
+		53E404DF25213EAE00077635 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		53E404E2252141EE00077635 /* APIResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseStatus.swift; sourceTree = "<group>"; };
 		860DED70573A414B267E6834 /* Pods-PriceQuoteIosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIosTests.release.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6B872AEC25F0703B3A81667 /* Pods_PriceQuoteIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceQuoteIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C7F7498D0B2C74623F8B65 /* Pods-PriceQuoteIos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIos.debug.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIos/Pods-PriceQuoteIos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		53E404A02520CF1000077635 /* PriceQuoteIos */ = {
 			isa = PBXGroup;
 			children = (
+				53E404DC2521339300077635 /* Utils */,
 				53E404D72521191000077635 /* Models */,
 				53E404D42521138800077635 /* DataSources */,
 				53E404A12520CF1000077635 /* AppDelegate.swift */,
@@ -122,6 +129,7 @@
 		53E404B72520CF1200077635 /* PriceQuoteIosTests */ = {
 			isa = PBXGroup;
 			children = (
+				53E404E1252141D500077635 /* Utils */,
 				53E404D12521119800077635 /* Salesman */,
 				53E404BA2520CF1200077635 /* Info.plist */,
 			);
@@ -153,6 +161,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		53E404DC2521339300077635 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				53E404DD2521339F00077635 /* BaseCallback.swift */,
+				53E404DF25213EAE00077635 /* APIHandler.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		53E404E1252141D500077635 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				53E404E2252141EE00077635 /* APIResponseStatus.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		E967B212699B1640C55EA8AE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +186,6 @@
 				0A84E80272125CA7548737C7 /* Pods-PriceQuoteIosTests.debug.xcconfig */,
 				860DED70573A414B267E6834 /* Pods-PriceQuoteIosTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -336,7 +360,9 @@
 				53E404A62520CF1000077635 /* ViewController.swift in Sources */,
 				53E404D92521191900077635 /* Salesman.swift in Sources */,
 				53E404A22520CF1000077635 /* AppDelegate.swift in Sources */,
+				53E404E025213EAE00077635 /* APIHandler.swift in Sources */,
 				53E404A42520CF1000077635 /* SceneDelegate.swift in Sources */,
+				53E404DE2521339F00077635 /* BaseCallback.swift in Sources */,
 				53E404DB25211CF200077635 /* Errors.swift in Sources */,
 				53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */,
 			);
@@ -347,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E404D3252111B900077635 /* SalesmanApiDataSourceTests.swift in Sources */,
+				53E404E3252141EE00077635 /* APIResponseStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
