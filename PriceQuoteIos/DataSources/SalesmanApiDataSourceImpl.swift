@@ -7,22 +7,35 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
 
 protocol SalesmanApiDataSource: class {
-    func create(salesman: Salesman, completion: @escaping (BaseCallback<SalesmanBaseResponse>) -> Void)
+    func create(salesman: Salesman, completion: @escaping(Result<Salesman, Errors>) -> Void)
 }
 
-class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
-    func create(salesman: Salesman, completion: @escaping (BaseCallback<SalesmanBaseResponse>) -> Void) {
-        let url = "http://localhost:3000/api/v1/salesman"
-        Alamofire.request(url,
-                          method: .post,
-                          parameters: salesman.format())
-            .responseObject { (response: DataResponse<SalesmanBaseResponse>) in
-                APIHandler.handleAPIResponse(data: response, completion: completion)
+final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
+    private struct K {
+        static let createSalesmanPath = "http://localhost:3000/api/v1/salesman"
+    }
+    private static var INSTANCE: SalesmanApiDataSourceImpl?
+    
+    public static func getInstance() -> SalesmanApiDataSourceImpl {
+        return INSTANCE ?? SalesmanApiDataSourceImpl()
+    }
+
+    func create(salesman: Salesman, completion: @escaping(Result<Salesman, Errors>) -> Void) {
+        guard let request = APIHandler.createPostRequest(path: K.createSalesmanPath,
+                                                         parameterDictionary: salesman.format()) else {
+            return
         }
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            do {
+                let response = try JSONDecoder().decode(SalesmanDataResponse.self, from: data! )
+                completion(.success(response.format()))
+            } catch {
+                completion(.failure(Errors.badRequest))
+            }
+        }.resume()
     }
 }
 

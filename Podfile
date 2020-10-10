@@ -6,8 +6,6 @@ target 'PriceQuoteIos' do
   use_frameworks!
 
   # Pods for PriceQuoteIos
-    pod 'ObjectMapper', '~> 3.4'
-    pod 'AlamofireObjectMapper', '~> 5.0'  
 
   target 'PriceQuoteIosTests' do
     inherit! :search_paths

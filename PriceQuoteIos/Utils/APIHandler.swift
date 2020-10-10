@@ -7,23 +7,17 @@
 //
 
 import Foundation
-import Alamofire
 
 class APIHandler {
-    public static func handleAPIResponse<T: BaseResponse> (data: DataResponse<T>,
-                                                           completion: @escaping (BaseCallback<T>) -> Void) {
-        switch(data.result) {
-        case .success(let response):
-            switch response.status {
-            case 201:
-                completion(.success(response))
-            case 404:
-                completion(BaseCallback.failed(error: Errors.notFound))
-            default:
-                completion(BaseCallback.failed(error: Errors.badRequest))
-            }
-        case .failure(let error):
-            completion(BaseCallback.failed(error: error))
+    public static func createPostRequest(path: String, parameterDictionary: [String: Any]) -> URLRequest? {
+        guard let url = URL(string: path) else { return nil }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return nil
         }
+        request.httpBody = httpBody
+        return request
     }
 }

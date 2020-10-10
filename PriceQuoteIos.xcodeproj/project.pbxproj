@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		31178DAC1BFF84B078C8F035 /* Pods_PriceQuoteIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B872AEC25F0703B3A81667 /* Pods_PriceQuoteIos.framework */; };
 		343E956AEEBC7F3A0F999709 /* Pods_PriceQuoteIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A11F48588DCD925D34FA1D /* Pods_PriceQuoteIosTests.framework */; };
+		53C4800B25326DE7009B012D /* SalesmanDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4800A25326DE7009B012D /* SalesmanDataResponse.swift */; };
+		53C48012253275BC009B012D /* SalesmanApiDataSourceImplMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C48011253275BC009B012D /* SalesmanApiDataSourceImplMock.swift */; };
 		53E404A22520CF1000077635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404A12520CF1000077635 /* AppDelegate.swift */; };
 		53E404A42520CF1000077635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404A32520CF1000077635 /* SceneDelegate.swift */; };
 		53E404A62520CF1000077635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404A52520CF1000077635 /* ViewController.swift */; };
@@ -19,7 +21,6 @@
 		53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */; };
 		53E404D92521191900077635 /* Salesman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D82521191900077635 /* Salesman.swift */; };
 		53E404DB25211CF200077635 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DA25211CF200077635 /* Errors.swift */; };
-		53E404DE2521339F00077635 /* BaseCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DD2521339F00077635 /* BaseCallback.swift */; };
 		53E404E025213EAE00077635 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DF25213EAE00077635 /* APIHandler.swift */; };
 		53E404E3252141EE00077635 /* APIResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404E2252141EE00077635 /* APIResponseStatus.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,8 @@
 		05A11F48588DCD925D34FA1D /* Pods_PriceQuoteIosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceQuoteIosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A84E80272125CA7548737C7 /* Pods-PriceQuoteIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIosTests.debug.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8161F9AA98FA08E0D11D2D /* Pods-PriceQuoteIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIos.release.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIos/Pods-PriceQuoteIos.release.xcconfig"; sourceTree = "<group>"; };
+		53C4800A25326DE7009B012D /* SalesmanDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanDataResponse.swift; sourceTree = "<group>"; };
+		53C48011253275BC009B012D /* SalesmanApiDataSourceImplMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceImplMock.swift; sourceTree = "<group>"; };
 		53E4049E2520CF1000077635 /* PriceQuoteIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceQuoteIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E404A12520CF1000077635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53E404A32520CF1000077635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceImpl.swift; sourceTree = "<group>"; };
 		53E404D82521191900077635 /* Salesman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salesman.swift; sourceTree = "<group>"; };
 		53E404DA25211CF200077635 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		53E404DD2521339F00077635 /* BaseCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCallback.swift; sourceTree = "<group>"; };
 		53E404DF25213EAE00077635 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		53E404E2252141EE00077635 /* APIResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseStatus.swift; sourceTree = "<group>"; };
 		860DED70573A414B267E6834 /* Pods-PriceQuoteIosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIosTests.release.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,22 @@
 				05A11F48588DCD925D34FA1D /* Pods_PriceQuoteIosTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53C4800925326DD5009B012D /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				53C4800A25326DE7009B012D /* SalesmanDataResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		53C48010253275B0009B012D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				53C48011253275BC009B012D /* SalesmanApiDataSourceImplMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		53E404952520CF1000077635 = {
@@ -139,6 +157,7 @@
 		53E404D12521119800077635 /* Salesman */ = {
 			isa = PBXGroup;
 			children = (
+				53C48010253275B0009B012D /* Mocks */,
 				53E404D2252111B900077635 /* SalesmanApiDataSourceTests.swift */,
 			);
 			path = Salesman;
@@ -155,6 +174,7 @@
 		53E404D72521191000077635 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				53C4800925326DD5009B012D /* Responses */,
 				53E404D82521191900077635 /* Salesman.swift */,
 				53E404DA25211CF200077635 /* Errors.swift */,
 			);
@@ -164,7 +184,6 @@
 		53E404DC2521339300077635 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				53E404DD2521339F00077635 /* BaseCallback.swift */,
 				53E404DF25213EAE00077635 /* APIHandler.swift */,
 			);
 			path = Utils;
@@ -200,7 +219,6 @@
 				53E4049A2520CF1000077635 /* Sources */,
 				53E4049B2520CF1000077635 /* Frameworks */,
 				53E4049C2520CF1000077635 /* Resources */,
-				F1400B88E2D1A93E132618AE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,23 +351,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F1400B88E2D1A93E132618AE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIos/Pods-PriceQuoteIos-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIos/Pods-PriceQuoteIos-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIos/Pods-PriceQuoteIos-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -362,9 +363,9 @@
 				53E404A22520CF1000077635 /* AppDelegate.swift in Sources */,
 				53E404E025213EAE00077635 /* APIHandler.swift in Sources */,
 				53E404A42520CF1000077635 /* SceneDelegate.swift in Sources */,
-				53E404DE2521339F00077635 /* BaseCallback.swift in Sources */,
 				53E404DB25211CF200077635 /* Errors.swift in Sources */,
 				53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */,
+				53C4800B25326DE7009B012D /* SalesmanDataResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E404D3252111B900077635 /* SalesmanApiDataSourceTests.swift in Sources */,
+				53C48012253275BC009B012D /* SalesmanApiDataSourceImplMock.swift in Sources */,
 				53E404E3252141EE00077635 /* APIResponseStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
