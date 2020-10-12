@@ -9,8 +9,10 @@
 import Foundation
 
 class APIHandler {
+    public static let basePath = "http://localhost:3000/api/"
+    
     public static func createPostRequest(path: String, parameterDictionary: [String: Any]) -> URLRequest? {
-        guard let url = URL(string: path) else { return nil }
+        guard let url = URL(string: APIHandler.basePath + path) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")

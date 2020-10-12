@@ -14,7 +14,7 @@ protocol SalesmanApiDataSource: class {
 
 final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
     private struct K {
-        static let createSalesmanPath = "http://localhost:3000/api/v1/salesman"
+        static let createSalesmanPath = "v1/salesman"
     }
     private static var INSTANCE: SalesmanApiDataSourceImpl?
     

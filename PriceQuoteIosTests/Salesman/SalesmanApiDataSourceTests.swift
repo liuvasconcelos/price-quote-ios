@@ -7,18 +7,23 @@
 //
 
 import XCTest
+import OHHTTPStubs
 @testable import PriceQuoteIos
 
 class SalesmanApiDataSourceTests: XCTestCase {
     func test_create_withCorrectFiels_requestSucceeds() {
-        let sut = SalesmanApiDataSourceImplMock()
-        let salesman = sut.salesman
+        HTTPStubs.setEnabled(true)
+        let sut = SalesmanApiDataSourceImpl()
+        let salesman = Salesman(name: "Some name",
+                                status: SalesmanStatus.active,
+                                phone: Phone(number: "999999999",
+                                             isWhatsappActive: true))
         let e = expectation(description: "URLSession")
-        sut.status = .success
         sut.create(salesman: salesman) { result in
             switch result {
             case .success(let response):
                 XCTAssertNotNil(response.id)
+                XCTAssertEqual(response.id, 31)
             case .failure(_):
                 XCTFail("Fail to save salesman")
             }
