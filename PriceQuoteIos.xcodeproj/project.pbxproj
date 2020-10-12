@@ -241,6 +241,7 @@
 				53E404B02520CF1200077635 /* Sources */,
 				53E404B12520CF1200077635 /* Frameworks */,
 				53E404B22520CF1200077635 /* Resources */,
+				D7B58B7195F4344BECD9C54A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,6 +373,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIos/Pods-PriceQuoteIos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7B58B7195F4344BECD9C54A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

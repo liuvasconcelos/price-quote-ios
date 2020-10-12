@@ -6,53 +6,74 @@
 //  Copyright © 2020 Livia Vasconcelos. All rights reserved.
 //
 
-import XCTest
 import OHHTTPStubs
+import Quick
+import Nimble
 @testable import PriceQuoteIos
 
-class SalesmanApiDataSourceTests: XCTestCase {
-    override class func setUp() {
-        super.setUp()
+class SalesmanApiDataSourceTests: QuickSpec {
+    var sut: SalesmanApiDataSource!
+    var salesman: Salesman!
+    
+    override func spec() {
+        super.spec()
         OHHTTPStubMocks.configureSalesmanStubs()
-    }
-
-    func test_create_withCorrectFiels_requestSucceeds() {
-        let sut = SalesmanApiDataSourceImpl()
-        let salesman = Salesman(name: "Some name",
-                                status: SalesmanStatus.active,
-                                phone: Phone(number: "999999999",
-                                             isWhatsappActive: true))
-        let e = expectation(description: "URLSession")
-        sut.create(salesman: salesman) { result in
-            switch result {
-            case .success(let response):
-                XCTAssertNotNil(response.id)
-                XCTAssertEqual(response.id, 31)
-            case .failure(_):
-                XCTFail("Fail to save salesman")
+        sut = SalesmanApiDataSourceImpl()
+        
+        describe("creating a salesman") {
+            context("when request succeeds") {
+                var savedSalesman: Salesman?
+                
+                beforeEach {
+                    self.salesman = Salesman(name: "Some name",
+                                        status: SalesmanStatus.active,
+                                        phone: Phone(number: "999999999",
+                                                     isWhatsappActive: true))
+                    let e = self.expectation(description: "URLSession")
+                    self.sut.create(salesman: self.salesman) { result in
+                        switch result {
+                        case .success(let response):
+                            savedSalesman = response
+                        case .failure(_):
+                            fail("Fail to save salesman")
+                        }
+                        e.fulfill()
+                    }
+                    self.waitForExpectations(timeout: 5.0, handler: nil)
+                }
+            
+                it("should save salesman correctly") {
+                    expect(savedSalesman?.id).toNot(beNil())
+                    expect(savedSalesman?.id).to(equal(31))
+                }
             }
-            e.fulfill()
-        }
-        waitForExpectations(timeout: 5.0, handler: nil)
-    }
-
-    func test_create_withIncorrectFiels_requestFails() {
-        OHHTTPStubMocks.isErrorTest = true
-        let sut = SalesmanApiDataSourceImpl()
-        let salesman = Salesman(name: "",
-                                status: SalesmanStatus.active,
-                                phone: Phone(number: "999999999",
-                                             isWhatsappActive: true))
-        let e = expectation(description: "URLSession")
-        sut.create(salesman: salesman) { result in
-            switch result {
-            case .success(_):
-                XCTFail("Could save salesman")
-            case .failure(let error):
-                XCTAssertEqual(error, Errors.badRequest)
+            
+            context("when request fails") {
+                var errorResponse: Errors?
+                
+                beforeEach {
+                    OHHTTPStubMocks.isErrorTest = true
+                    self.salesman = Salesman(name: "",
+                                             status: SalesmanStatus.active,
+                                             phone: Phone(number: "999999999",
+                                                          isWhatsappActive: true))
+                    let e = self.expectation(description: "URLSession")
+                    self.sut.create(salesman: self.salesman) { result in
+                        switch result {
+                        case .success(_):
+                            fail("Could save salesman")
+                        case .failure(let error):
+                            errorResponse = error
+                        }
+                        e.fulfill()
+                    }
+                    self.waitForExpectations(timeout: 5.0, handler: nil)
+                }
+                
+                it("should get an error") {
+                    expect(errorResponse).to(equal(Errors.badRequest))
+                }
             }
-            e.fulfill()
         }
-        waitForExpectations(timeout: 5.0, handler: nil)
     }
 }

@@ -11,6 +11,8 @@ target 'PriceQuoteIos' do
   target 'PriceQuoteIosTests' do
     inherit! :search_paths
     # Pods for testing
-  end
+    pod 'Quick'
+    pod 'Nimble' 
+ end
 
 end
