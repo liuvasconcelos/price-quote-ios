@@ -10,6 +10,7 @@ import OHHTTPStubs
 import UIKit
 
 public class OHHTTPStubMocks {
+    public static var isErrorTest = false
     
     public static func configureSalesmanStubs() {
         createSalesmanSuccess()
@@ -20,6 +21,11 @@ public class OHHTTPStubMocks {
             let createSalemanUri = APIHandler.basePath + "v1/salesman"
             return request.url?.absoluteString == createSalemanUri
         }, withStubResponse: { _ -> HTTPStubsResponse in
+            if isErrorTest {
+                return HTTPStubsResponse(fileAtPath: OHPathForFile("createSalesmanBadRequest.json", self)!,
+                                         statusCode: 400,
+                                         headers: nil)
+            }
             return HTTPStubsResponse(fileAtPath: OHPathForFile("createSalesman.json", self)!,
                                      statusCode: 201,
                                      headers: nil)
