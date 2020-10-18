@@ -8,33 +8,24 @@
 
 import Foundation
  
-struct Salesman {
+struct Salesman: Codable {
     var id: Int?
     let name: String
-    let status: SalesmanStatus
-    let phone: Phone
+    var status: String?
+    //TODO: Api will change!
+    var phones: [Phone]?
+    var phone: [Phone]?
     
-    func format() -> [String: Any] {
-        return [
-            "salesman": [
-                "name": name, 
-                "status": status.rawValue,
-                "phone": [
-                    ["number": phone.number,
-                    "whatsapp": phone.isWhatsappActive]
-                ]
-            ]
-        ]
+    func requestData() -> Data? {
+        let salesmanRequest = SalesmanRequest(salesman: self)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        return try? encoder.encode(salesmanRequest)
     }
 }
 
-struct Phone {
+struct Phone: Codable {
     var id: Int?
-    let number: String
-    let isWhatsappActive: Bool
-}
-
-public enum SalesmanStatus: String {
-    case active = "active"
-    case inactive = "inactive"
+    var number: String?
+    var whatsapp: Bool?
 }

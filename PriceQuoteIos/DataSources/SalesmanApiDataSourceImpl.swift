@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SalesmanApiDataSource: class {
-    func create(salesman: Salesman, completion: @escaping(Result<Salesman, Errors>) -> Void)
+    func create(salesman: Salesman, completion: @escaping(Result<Salesman?, Errors>) -> Void)
 }
 
 final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
@@ -22,16 +22,16 @@ final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
         return INSTANCE ?? SalesmanApiDataSourceImpl()
     }
 
-    func create(salesman: Salesman, completion: @escaping(Result<Salesman, Errors>) -> Void) {
+    func create(salesman: Salesman, completion: @escaping(Result<Salesman?, Errors>) -> Void) {
         guard let request = APIHandler.createPostRequest(path: K.createSalesmanPath,
-                                                         parameterDictionary: salesman.format()) else {
+                                                         data: salesman.requestData()) else {
             return
         }
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             do {
-                let response = try JSONDecoder().decode(SalesmanDataResponse.self, from: data! )
-                completion(.success(response.format()))
+                let response = try JSONDecoder().decode(SalesmanDataResponse.self, from: data!)
+                completion(.success(response.data))
             } catch {
                 completion(.failure(Errors.badRequest))
             }

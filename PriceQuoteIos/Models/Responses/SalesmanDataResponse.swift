@@ -9,28 +9,11 @@
 import Foundation
 
 struct SalesmanDataResponse: Codable {
-    let data: SalesmanResponse?
+    let data: Salesman?
     let status: Int?
+}
+
+struct SalesmanRequest: Codable {
+    let salesman: Salesman?
     
-    func format() -> Salesman {
-        let phone = Phone(id: data?.phones?.first?.id,
-                          number: data?.phones?.first?.number ?? String(),
-                          isWhatsappActive: data?.phones?.first?.whatsapp ?? false)
-        return Salesman(id: data?.id,
-                        name: data?.name ?? String(),
-                        status: SalesmanStatus(rawValue: data?.status ?? "inactive") ?? SalesmanStatus.inactive,
-                        phone: phone)
-    }
-}
-
-struct SalesmanResponse: Codable {
-    let id: Int?
-    let name, status: String?
-    let phones: [PhoneResponse]?
-}
-
-struct PhoneResponse: Codable {
-    let id: Int?
-    let number: String?
-    let whatsapp: Bool?
 }

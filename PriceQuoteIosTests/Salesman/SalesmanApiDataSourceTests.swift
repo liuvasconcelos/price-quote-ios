@@ -26,9 +26,9 @@ class SalesmanApiDataSourceTests: QuickSpec {
                 
                 beforeEach {
                     self.salesman = Salesman(name: "Some name",
-                                        status: SalesmanStatus.active,
-                                        phone: Phone(number: "999999999",
-                                                     isWhatsappActive: true))
+                                             status: "active",
+                                             phone: [Phone(number: "999999999",
+                                                          whatsapp: true)])
                     let e = self.expectation(description: "URLSession")
                     self.sut.create(salesman: self.salesman) { result in
                         switch result {
@@ -54,9 +54,9 @@ class SalesmanApiDataSourceTests: QuickSpec {
                 beforeEach {
                     OHHTTPStubMocks.isErrorTest = true
                     self.salesman = Salesman(name: "",
-                                             status: SalesmanStatus.active,
-                                             phone: Phone(number: "999999999",
-                                                          isWhatsappActive: true))
+                                             status: "active",
+                                             phone: [Phone(number: "999999999",
+                                                          whatsapp: true)])
                     let e = self.expectation(description: "URLSession")
                     self.sut.create(salesman: self.salesman) { result in
                         switch result {

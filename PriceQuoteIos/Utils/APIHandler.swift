@@ -11,15 +11,12 @@ import Foundation
 class APIHandler {
     public static let basePath = "http://localhost:3000/api/"
     
-    public static func createPostRequest(path: String, parameterDictionary: [String: Any]) -> URLRequest? {
+    public static func createPostRequest(path: String, data: Data?) -> URLRequest? {
         guard let url = URL(string: APIHandler.basePath + path) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-            return nil
-        }
-        request.httpBody = httpBody
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = data
         return request
     }
 }
