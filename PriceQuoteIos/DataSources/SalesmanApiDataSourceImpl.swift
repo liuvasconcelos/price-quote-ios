@@ -24,7 +24,7 @@ final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
     }
 
     func create(salesman: Salesman, completion: @escaping(Result<Salesman?, Errors>) -> Void) {
-        guard let request = APIHandler.createRequest(method: "POST",
+        guard let request = APIHandler.createRequest(method: HttpMethod.post.rawValue.uppercased(),
                                                      path: K.createSalesmanPath,
                                                      data: salesman.requestData()) else {
             return
@@ -42,7 +42,7 @@ final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
 
     func update(salesman: Salesman, completion: @escaping(Result<Bool?, Errors>) -> Void) {
         let updatePath = "\(K.createSalesmanPath)/\(String(salesman.id ?? 0))"
-        guard let request = APIHandler.createRequest(method: "PUT",
+        guard let request = APIHandler.createRequest(method: HttpMethod.put.rawValue.uppercased(),
                                                      path: updatePath,
                                                      data: salesman.requestData()) else {
             return

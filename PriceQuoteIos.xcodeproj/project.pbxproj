@@ -24,7 +24,6 @@
 		53E404D3252111B900077635 /* SalesmanApiDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D2252111B900077635 /* SalesmanApiDataSourceTests.swift */; };
 		53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */; };
 		53E404D92521191900077635 /* Salesman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D82521191900077635 /* Salesman.swift */; };
-		53E404DB25211CF200077635 /* ApiCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DA25211CF200077635 /* ApiCodes.swift */; };
 		53E404E025213EAE00077635 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DF25213EAE00077635 /* APIHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +60,6 @@
 		53E404D2252111B900077635 /* SalesmanApiDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceTests.swift; sourceTree = "<group>"; };
 		53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceImpl.swift; sourceTree = "<group>"; };
 		53E404D82521191900077635 /* Salesman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salesman.swift; sourceTree = "<group>"; };
-		53E404DA25211CF200077635 /* ApiCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCodes.swift; sourceTree = "<group>"; };
 		53E404DF25213EAE00077635 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		860DED70573A414B267E6834 /* Pods-PriceQuoteIosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIosTests.release.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6B872AEC25F0703B3A81667 /* Pods_PriceQuoteIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceQuoteIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +190,6 @@
 			children = (
 				53C4800925326DD5009B012D /* Responses */,
 				53E404D82521191900077635 /* Salesman.swift */,
-				53E404DA25211CF200077635 /* ApiCodes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,7 +418,6 @@
 				53C480612534F189009B012D /* OHHTTPStubMocks.swift in Sources */,
 				53E404E025213EAE00077635 /* APIHandler.swift in Sources */,
 				53E404A42520CF1000077635 /* SceneDelegate.swift in Sources */,
-				53E404DB25211CF200077635 /* ApiCodes.swift in Sources */,
 				53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */,
 				53C4800B25326DE7009B012D /* SalesmanDataResponse.swift in Sources */,
 			);
