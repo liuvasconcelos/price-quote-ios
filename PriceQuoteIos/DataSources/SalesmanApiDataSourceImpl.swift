@@ -10,6 +10,7 @@ import Foundation
 
 protocol SalesmanApiDataSource: class {
     func create(salesman: Salesman, completion: @escaping(Result<Salesman?, Errors>) -> Void)
+    func update(salesman: Salesman, completion: @escaping(Result<Bool?, Errors>) -> Void)
 }
 
 final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
@@ -23,8 +24,9 @@ final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
     }
 
     func create(salesman: Salesman, completion: @escaping(Result<Salesman?, Errors>) -> Void) {
-        guard let request = APIHandler.createPostRequest(path: K.createSalesmanPath,
-                                                         data: salesman.requestData()) else {
+        guard let request = APIHandler.createRequest(method: HttpMethod.post.rawValue.uppercased(),
+                                                     path: K.createSalesmanPath,
+                                                     data: salesman.requestData()) else {
             return
         }
 
@@ -34,6 +36,23 @@ final class SalesmanApiDataSourceImpl: SalesmanApiDataSource {
                 completion(.success(response.data))
             } catch {
                 completion(.failure(Errors.badRequest))
+            }
+        }.resume()
+    }
+
+    func update(salesman: Salesman, completion: @escaping(Result<Bool?, Errors>) -> Void) {
+        let updatePath = "\(K.createSalesmanPath)/\(String(salesman.id ?? 0))"
+        guard let request = APIHandler.createRequest(method: HttpMethod.put.rawValue.uppercased(),
+                                                     path: updatePath,
+                                                     data: salesman.requestData()) else {
+            return
+        }
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let r = response as? HTTPURLResponse, r.statusCode == APIStatusCode.success.rawValue {
+                completion(.success(true))
+            } else {
+                completion(.failure(Errors.notFound))
             }
         }.resume()
     }

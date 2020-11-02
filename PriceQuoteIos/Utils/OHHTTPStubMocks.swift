@@ -13,10 +13,11 @@ public class OHHTTPStubMocks {
     public static var isErrorTest = false
     
     public static func configureSalesmanStubs() {
-        createSalesmanSuccess()
+        createSalesman()
+        updateSalesman()
     }
     
-    private static func createSalesmanSuccess() {
+    private static func createSalesman() {
         HTTPStubs.stubRequests(passingTest: { request -> Bool in
             let createSalemanUri = APIHandler.basePath + "v1/salesman"
             return request.url?.absoluteString == createSalemanUri
@@ -28,6 +29,21 @@ public class OHHTTPStubMocks {
             }
             return HTTPStubsResponse(fileAtPath: OHPathForFile("createSalesman.json", self)!,
                                      statusCode: 201,
+                                     headers: nil)
+        })
+    }
+    private static func updateSalesman() {
+        HTTPStubs.stubRequests(passingTest: { request -> Bool in
+            let updateSalemanUri = APIHandler.basePath + "v1/salesman/50"
+            return request.url?.absoluteString == updateSalemanUri
+        }, withStubResponse: { _ -> HTTPStubsResponse in
+            if isErrorTest {
+                return HTTPStubsResponse(fileAtPath: OHPathForFile("notFound.json", self)!,
+                                         statusCode: 404,
+                                         headers: nil)
+            }
+            return HTTPStubsResponse(fileAtPath: OHPathForFile("emptyResponse.json", self)!,
+                                     statusCode: 200,
                                      headers: nil)
         })
     }
