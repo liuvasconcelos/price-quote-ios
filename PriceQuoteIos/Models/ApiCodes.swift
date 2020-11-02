@@ -12,3 +12,10 @@ public enum Errors: Error {
     case badRequest
     case notFound
 }
+
+public enum APIStatusCode: Int {
+    case success = 200
+    case created = 201
+    case badRequest = 400
+    case notFound = 404
+}

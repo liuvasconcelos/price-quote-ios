@@ -13,6 +13,8 @@
 		53C480552534EDBA009B012D /* createSalesman.json in Resources */ = {isa = PBXBuildFile; fileRef = 53C480542534EDBA009B012D /* createSalesman.json */; };
 		53C480612534F189009B012D /* OHHTTPStubMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C480432534E4DB009B012D /* OHHTTPStubMocks.swift */; };
 		53C4807F25350573009B012D /* createSalesmanBadRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 53C4807E25350573009B012D /* createSalesmanBadRequest.json */; };
+		53CD4C2425506C13006F6BFB /* emptyResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53CD4C2325506C13006F6BFB /* emptyResponse.json */; };
+		53CD4C2825506D09006F6BFB /* notFound.json in Resources */ = {isa = PBXBuildFile; fileRef = 53CD4C2725506D09006F6BFB /* notFound.json */; };
 		53E404A22520CF1000077635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404A12520CF1000077635 /* AppDelegate.swift */; };
 		53E404A42520CF1000077635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404A32520CF1000077635 /* SceneDelegate.swift */; };
 		53E404A62520CF1000077635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404A52520CF1000077635 /* ViewController.swift */; };
@@ -22,7 +24,7 @@
 		53E404D3252111B900077635 /* SalesmanApiDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D2252111B900077635 /* SalesmanApiDataSourceTests.swift */; };
 		53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */; };
 		53E404D92521191900077635 /* Salesman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404D82521191900077635 /* Salesman.swift */; };
-		53E404DB25211CF200077635 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DA25211CF200077635 /* Errors.swift */; };
+		53E404DB25211CF200077635 /* ApiCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DA25211CF200077635 /* ApiCodes.swift */; };
 		53E404E025213EAE00077635 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E404DF25213EAE00077635 /* APIHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		53C480432534E4DB009B012D /* OHHTTPStubMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHHTTPStubMocks.swift; sourceTree = "<group>"; };
 		53C480542534EDBA009B012D /* createSalesman.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = createSalesman.json; sourceTree = "<group>"; };
 		53C4807E25350573009B012D /* createSalesmanBadRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = createSalesmanBadRequest.json; sourceTree = "<group>"; };
+		53CD4C2325506C13006F6BFB /* emptyResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emptyResponse.json; sourceTree = "<group>"; };
+		53CD4C2725506D09006F6BFB /* notFound.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = notFound.json; sourceTree = "<group>"; };
 		53E4049E2520CF1000077635 /* PriceQuoteIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceQuoteIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E404A12520CF1000077635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53E404A32520CF1000077635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +61,7 @@
 		53E404D2252111B900077635 /* SalesmanApiDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceTests.swift; sourceTree = "<group>"; };
 		53E404D52521139900077635 /* SalesmanApiDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesmanApiDataSourceImpl.swift; sourceTree = "<group>"; };
 		53E404D82521191900077635 /* Salesman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salesman.swift; sourceTree = "<group>"; };
-		53E404DA25211CF200077635 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		53E404DA25211CF200077635 /* ApiCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCodes.swift; sourceTree = "<group>"; };
 		53E404DF25213EAE00077635 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		860DED70573A414B267E6834 /* Pods-PriceQuoteIosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriceQuoteIosTests.release.xcconfig"; path = "Target Support Files/Pods-PriceQuoteIosTests/Pods-PriceQuoteIosTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6B872AEC25F0703B3A81667 /* Pods_PriceQuoteIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriceQuoteIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,10 +108,20 @@
 		53C480532534EDA2009B012D /* StubMocks */ = {
 			isa = PBXGroup;
 			children = (
+				53CD4C2F25506ED4006F6BFB /* Defaults */,
 				53C480542534EDBA009B012D /* createSalesman.json */,
 				53C4807E25350573009B012D /* createSalesmanBadRequest.json */,
 			);
 			path = StubMocks;
+			sourceTree = "<group>";
+		};
+		53CD4C2F25506ED4006F6BFB /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				53CD4C2325506C13006F6BFB /* emptyResponse.json */,
+				53CD4C2725506D09006F6BFB /* notFound.json */,
+			);
+			path = Defaults;
 			sourceTree = "<group>";
 		};
 		53E404952520CF1000077635 = {
@@ -178,7 +192,7 @@
 			children = (
 				53C4800925326DD5009B012D /* Responses */,
 				53E404D82521191900077635 /* Salesman.swift */,
-				53E404DA25211CF200077635 /* Errors.swift */,
+				53E404DA25211CF200077635 /* ApiCodes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -296,7 +310,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CD4C2425506C13006F6BFB /* emptyResponse.json in Resources */,
 				53E404AE2520CF1100077635 /* LaunchScreen.storyboard in Resources */,
+				53CD4C2825506D09006F6BFB /* notFound.json in Resources */,
 				53E404AB2520CF1100077635 /* Assets.xcassets in Resources */,
 				53C4807F25350573009B012D /* createSalesmanBadRequest.json in Resources */,
 				53E404A92520CF1000077635 /* Main.storyboard in Resources */,
@@ -405,7 +421,7 @@
 				53C480612534F189009B012D /* OHHTTPStubMocks.swift in Sources */,
 				53E404E025213EAE00077635 /* APIHandler.swift in Sources */,
 				53E404A42520CF1000077635 /* SceneDelegate.swift in Sources */,
-				53E404DB25211CF200077635 /* Errors.swift in Sources */,
+				53E404DB25211CF200077635 /* ApiCodes.swift in Sources */,
 				53E404D62521139900077635 /* SalesmanApiDataSourceImpl.swift in Sources */,
 				53C4800B25326DE7009B012D /* SalesmanDataResponse.swift in Sources */,
 			);
